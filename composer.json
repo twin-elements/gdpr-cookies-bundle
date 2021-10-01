@@ -1,0 +1,21 @@
+{
+    "name": "twin-elements/gdpr-cookies-bundle",
+    "description": "GDPR cookies for CMS",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Władysław Dudko",
+            "email": "wladyslaw@jellinek.pl"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "symfony/framework-bundle": "^4.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "TwinElements\\GDPRCookiesBundle\\": "src/"
+        }
+    }
+}

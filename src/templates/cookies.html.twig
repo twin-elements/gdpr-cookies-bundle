@@ -1,0 +1,14 @@
+{% trans_default_domain 'translations' %}
+<div id="cookies">
+    {% block cookies_container %}
+        <div class="text-center mb-3">{{ "translations.cookies.text"|trans }} <a
+                    href="{{ route }}">{{ "translations.cookies.read_all"|trans }}</a></div>
+        <div id="cookies-form-container"></div>
+        <div class="text-center">
+            <button id="cookies_accept"
+                    class="btn btn-primary">{{ "translations.cookies.accept"|trans }}</button>
+            <button id="show-cookie-settings"
+                    class="btn btn-outline-primary">{{ "translations.cookies.go_to_settings"|trans }}</button>
+        </div>
+    {% endblock %}
+</div>
