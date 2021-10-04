@@ -1,4 +1,6 @@
-1.Composer
+1.Install
+
+```composer require twin-elements/gdpr-cookies-bundle```
 
 2.in routing.yaml file
 ```
@@ -19,15 +21,20 @@ gdpr_cookies:
 TwinElements\GDPRCookiesBundle\TwinElementsGDPRCookiesBundle::class => ['all' => true],
 ```
 
-4.in confif/packages/ add twin_elements_gdpr_cookies.yaml
+4. Configuration
+If you have created route "cookies_policy" leave package settings (config/packages/twin_elements_gdpr_cookies.yaml) unchanged
+```
+twin_elements_gdpr_cookies: ~
+```
+If you want to change the route default route to your own, enter it in the package configuration
 ```
 twin_elements_gdpr_cookies:
-    cookies_policy_route: ~
+    cookies_policy_route: your_route_name
 ```
 
 How it use?
 
-For markeging codes
+For marketing codes
 
 ```{% if isMarketingAccepted() %}{% endif %}```
 
@@ -35,7 +42,7 @@ Form analytics codes
 
 ```{% if isAnalyticsAccepted() %}{% endif %}```
 
-In base template
+In base template add
 
 ```{{ render(controller('TwinElementsGDPRCookiesBundle:Cookies:renderBaseForm')) }}```
 
