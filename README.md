@@ -26,7 +26,7 @@ If you have created route "cookies_policy" leave package settings (config/packag
 ```
 twin_elements_gdpr_cookies: ~
 ```
-If you want to change the route default route to your own, enter it in the package configuration
+If you want to change the default route to your own, enter it in the package configuration
 ```
 twin_elements_gdpr_cookies:
     cookies_policy_route: your_route_name
