@@ -44,7 +44,7 @@ Form analytics codes
 
 In base template add
 
-```{{ render(controller('TwinElementsGDPRCookiesBundle:Cookies:renderBaseForm')) }}```
+```{{ render(controller('TwinElements\\GDPRCookiesBundle\\Controller\\CookiesController::renderBaseForm')) }}```
 
 In translations.LANG.yaml add
 ```

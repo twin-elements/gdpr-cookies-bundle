@@ -20,7 +20,7 @@ use TwinElements\GDPRCookiesBundle\Form\CookiesFormType;
 
 class CookiesController extends AbstractController
 {
-    public function renderBaseFormAction(Request $request, array $twin_elements_gdpr_config)
+    public function renderBaseForm(Request $request, array $twin_elements_gdpr_config) : Response
     {
         if($request->cookies->has('accepted_cookies')){
             return new Response();
