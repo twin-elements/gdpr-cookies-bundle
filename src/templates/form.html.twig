@@ -1,6 +1,6 @@
 {% trans_default_domain 'translations' %}
 <div id="cookies-form-container" class="mb-4 p-3 bg-white border ">
-    <p>Wybierz pliki cookie, które chcesz włączyć, korzystając z poniższych pól wyboru:</p>
+    <p>{{ 'translations.cookies.teaser'|trans }}</p>
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
     <div class="mb-3">
@@ -21,7 +21,6 @@
             {{ 'translations.cookies.analytic_cookies_desc'|trans }}
         </div>
     </div>
-
-    <button id="submit-cookies-settings" type="button" class="btn btn-primary">Zapisz</button>
+    <button id="submit-cookies-settings" type="button" class="btn btn-primary">{{ "translations.cookies.save"|trans }}</button>
     {{ form_end(form) }}
 </div>
