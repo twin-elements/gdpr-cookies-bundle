@@ -31,8 +31,28 @@ If you want to change the default route to your own, enter it in the package con
 twin_elements_gdpr_cookies:
     cookies_policy_route: your_route_name
 ```
+in `webpack.config.js` create alias for root dir: 
+```
+const rootDir = path.resolve(__dirname, '');
 
-How it use?
+Encore
+    .setOutputPath('public/build/')
+    .setPublicPath('/build')
+    .addEntry('common', './assets/js/app.js')
+;
+
+const frontConfig = Encore.getWebpackConfig();
+frontConfig.resolve.alias['root-dir'] = rootDir;
+frontConfig.name = 'frontConfig';
+
+Encore.reset();
+```
+
+Import `cookies.js`
+
+```import 'root-dir/public/bundles/twinelementsgdprcookies/js/cookies';```
+
+##How it use?
 
 For marketing codes
 
@@ -46,8 +66,4 @@ In base template add
 
 ```{{ render(controller('TwinElements\\GDPRCookiesBundle\\Controller\\CookiesController::renderBaseForm')) }}```
 
-In translations.LANG.yaml add
-```
-translations:    
-    cookies: { text: 'Ta strona internetowa chroni twoją prywatność poprzez przestrzeganie EU General Data Protection Regulation (RODO). Nie wykorzystamy Twoich danych w żadnym celu, na który nie wyrażasz zgody. Prosimy o zgodę na korzystanie z anonimowych danych, aby poprawić jakość korzystania z naszej witryny.', accept: 'Akceptuję wszystkie', no_accept: 'Nie akceptuję', read_all: 'Polityka cookies', base_cookies: Niezbędne, base_cookies_desc: 'Te pliki cookie są niezbędne, aby umożliwić Ci poruszanie się po witrynie i korzystanie z jej funkcji oraz zapamiętywanie preferencji. Bez tych plików cookie, witryna nie będzie działać prawidłowo.', analytic_cookies: Analityka, analytic_cookies_desc: 'Przechowamy anonimowe dane w formie zbiorczej na temat odwiedzających i ich doświadczeń na naszej stronie internetowej. Używamy tych danych do naprawiania błędów i poprawy komfortu dla wszystkich odwiedzających.', marketing_cookies: 'Marketing / Pliki cookie innych firm', marketing_cookies_desc: 'Przechowujemy pliki cookies, które umożliwiają sprecyzowanie profilu użytkownika i wyświetlenie mu najbardziej dopasowanych treści reklamowych. Poznanie preferencji gwarantuje największy komfort korzystania z serwisu dla odwiedzających. Informacje te mogą być udostępnione reklamodawcom i/lub sieciom reklamowym.', go_to_settings: 'Przejdź do ustawień', teaser: 'Wybierz pliki cookie, które chcesz włączyć, korzystając z poniższych pól wyboru:', save: 'Zapisz' }
-```
+To overwrite translations, create a `cookies.LOCALE.yaml` file and enter your own translations

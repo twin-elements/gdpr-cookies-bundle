@@ -17,20 +17,20 @@ class CookiesFormType extends AbstractType
                 'label_attr' => [
                     'class' => 'switch-custom'
                 ],
-                'label' => 'translations.cookies.base_cookies',
+                'label' => 'cookies.base_cookies',
             ])
             ->add('analytic', CheckboxType::class,[
                 'label_attr' => [
                     'class' => 'switch-custom'
                 ],
-                'label' => 'translations.cookies.analytic_cookies',
+                'label' => 'cookies.analytic_cookies',
                 'required' => false
             ])
             ->add('marketing', CheckboxType::class,[
                 'label_attr' => [
                     'class' => 'switch-custom'
                 ],
-                'label' => 'translations.cookies.marketing_cookies',
+                'label' => 'cookies.marketing_cookies',
                 'required' => false
             ]);
     }
@@ -39,7 +39,7 @@ class CookiesFormType extends AbstractType
     {
         $resolver->setDefaults([
            'data_class' => CookiesForm::class,
-            'translation_domain' => 'translations'
+            'translation_domain' => 'cookies'
         ]);
     }
 

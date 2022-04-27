@@ -1,5 +1,5 @@
-import Alert from "../../../../assets/js/Alert";
-import Loader from "../../../../assets/js/Loader";
+import Alert from "root-dir/assets/js/Alert";
+import Loader from "root-dir/assets/js/Loader";
 
 const cookiesFormContainer = document.getElementById('cookies-form-container');
 

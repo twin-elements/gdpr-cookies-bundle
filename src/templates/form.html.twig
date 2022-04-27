@@ -1,26 +1,26 @@
-{% trans_default_domain 'translations' %}
+{% trans_default_domain 'cookies' %}
 <div id="cookies-form-container" class="mb-4 p-3 bg-white border ">
-    <p>{{ 'translations.cookies.teaser'|trans }}</p>
+    <p class="small mb-3 font-weight-bold">{{ 'cookies.teaser'|trans }}</p>
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
     <div class="mb-3">
         {{ form_widget(form.base) }}
         <div class="text-secondary small">
-            {{ 'translations.cookies.base_cookies_desc'|trans }}
+            {{ 'cookies.base_cookies_desc'|trans }}
         </div>
     </div>
     <div class="mb-3">
         {{ form_widget(form.analytic) }}
         <div class="text-secondary small">
-            {{ 'translations.cookies.analytic_cookies_desc'|trans }}
+            {{ 'cookies.analytic_cookies_desc'|trans }}
         </div>
     </div>
     <div class="mb-3">
         {{ form_widget(form.marketing) }}
         <div class="text-secondary small">
-            {{ 'translations.cookies.analytic_cookies_desc'|trans }}
+            {{ 'cookies.analytic_cookies_desc'|trans }}
         </div>
     </div>
-    <button id="submit-cookies-settings" type="button" class="btn btn-primary">{{ "translations.cookies.save"|trans }}</button>
+    <button id="submit-cookies-settings" type="button" class="btn btn-primary btn-sm">{{ "cookies.save"|trans }}</button>
     {{ form_end(form) }}
 </div>
