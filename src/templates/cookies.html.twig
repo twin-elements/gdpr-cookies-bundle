@@ -1,14 +1,13 @@
 {% trans_default_domain 'cookies' %}
 <div id="cookies">
     {% block cookies_container %}
-        <div class="text-center mb-3">{{ "cookies.text"|trans }} <a
-                    href="{{ route }}">{{ "cookies.read_all"|trans }}</a></div>
+        <div class="text-center small mb-3">{{ "cookies.text"|trans({'%cookies_policy_url%': route})|raw }}</div>
         <div id="cookies-form-container"></div>
         <div class="text-center">
             <button id="cookies_accept"
-                    class="btn btn-primary">{{ "cookies.accept"|trans }}</button>
+                    class="btn btn-primary btn-sm">{{ "cookies.accept"|trans }}</button>
             <button id="show-cookie-settings"
-                    class="btn btn-outline-primary">{{ "cookies.go_to_settings"|trans }}</button>
+                    class="btn btn-outline-primary btn-sm">{{ "cookies.go_to_settings"|trans }}</button>
         </div>
     {% endblock %}
 </div>
