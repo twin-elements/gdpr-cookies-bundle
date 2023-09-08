@@ -64,6 +64,6 @@ Form analytics codes
 
 In base template add
 
-```{{ render(controller('TwinElements\\GDPRCookiesBundle\\Controller\\CookiesController::renderBaseForm')) }}```
+```<div id="cookies-base-container"></div>```
 
 To overwrite translations, create a `cookies.LOCALE.yaml` file and enter your own translations

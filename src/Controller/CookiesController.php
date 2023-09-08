@@ -20,14 +20,21 @@ use TwinElements\GDPRCookiesBundle\Form\CookiesFormType;
 
 class CookiesController extends AbstractController
 {
-    public function renderBaseForm(Request $request, array $twin_elements_gdpr_config) : Response
+    /**
+     * @Route("render-base-cookies-container", name="cookies_render_container", methods={"POST"}, options={"expose" = true, "i18n" = false})
+     */
+    public function renderBaseForm(Request $request, array $twin_elements_gdpr_config): Response
     {
-        if($request->cookies->has('accepted_cookies')){
-            return new Response();
+        if ($request->cookies->has('accepted_cookies')) {
+            $html = null;
+        }else{
+            $html = $this->renderView('@TwinElementsGDPRCookies/cookies.html.twig', [
+                'route' => $this->generateUrl($twin_elements_gdpr_config['cookies_policy_route'])
+            ]);
         }
 
-        return $this->render('@TwinElementsGDPRCookies/cookies.html.twig', [
-            'route' => $this->generateUrl($twin_elements_gdpr_config['cookies_policy_route'])
+        return new JsonResponse([
+            'html' => $html,
         ]);
     }
 
