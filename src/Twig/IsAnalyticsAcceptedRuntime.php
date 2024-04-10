@@ -11,7 +11,7 @@ class IsAnalyticsAcceptedRuntime implements RuntimeExtensionInterface
     /**
      * @var bool
      */
-    private $analytic = false;
+    private bool $analytic = false;
 
     public function __construct(RequestStack $request)
     {
@@ -19,15 +19,13 @@ class IsAnalyticsAcceptedRuntime implements RuntimeExtensionInterface
         if ($request->cookies->has(CookieName::MAIN)) {
             $cookies = json_decode($request->cookies->get(CookieName::MAIN));
             $this->analytic = $cookies->analytic;
-        } else {
-            $this->analytic = true;
         }
     }
 
     /**
      * @return bool
      */
-    public function isAnalyticsAccepted()
+    public function isAnalyticsAccepted(): bool
     {
         return $this->analytic;
     }

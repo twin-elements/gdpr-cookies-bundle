@@ -11,7 +11,7 @@ class IsMarketingAcceptedRuntime implements RuntimeExtensionInterface
     /**
      * @var bool
      */
-    private $marketing = false;
+    private bool $marketing = false;
 
     public function __construct(RequestStack $request)
     {
@@ -19,15 +19,13 @@ class IsMarketingAcceptedRuntime implements RuntimeExtensionInterface
         if ($request->cookies->has(CookieName::MAIN)) {
             $cookies = json_decode($request->cookies->get(CookieName::MAIN));
             $this->marketing = $cookies->marketing;
-        } else {
-            $this->marketing = true;
         }
     }
 
     /**
      * @return bool
      */
-    public function isMarketingAccepted()
+    public function isMarketingAccepted(): bool
     {
         return $this->marketing;
     }
